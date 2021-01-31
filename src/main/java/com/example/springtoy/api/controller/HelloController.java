@@ -1,4 +1,4 @@
-package com.example.springtoy.controller;
+package com.example.springtoy.api.controller;
 
 import lombok.Getter;
 import lombok.Setter;
