@@ -1,0 +1,14 @@
+spring:
+  social:
+    kakao:
+      client_id: 14c51eebda1ddbfccaac3c40dd5f07bf # 앱생성시 받은 REST API 키
+      redirect: /social/login/kakao
+      url:
+        login: https://kauth.kakao.com/oauth/authorize
+        token: https://kauth.kakao.com/oauth/token
+        profile: https://kapi.kakao.com/v2/user/me
+  url:
+    base: http://localhost:8080
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
