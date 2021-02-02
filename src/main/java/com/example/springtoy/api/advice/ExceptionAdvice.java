@@ -1,6 +1,8 @@
 package com.example.springtoy.api.advice;
 
 import com.example.springtoy.api.advice.exception.CAuthenticationEntryPointException;
+import com.example.springtoy.api.advice.exception.CCommunicationException;
+import com.example.springtoy.api.advice.exception.CUserExistException;
 import com.example.springtoy.api.advice.exception.CUserNotFoundException;
 import com.example.springtoy.api.model.response.CommonResult;
 import com.example.springtoy.api.service.ResponseService;
@@ -50,4 +52,15 @@ public class ExceptionAdvice {
         return responseService.getFailResult(Integer.parseInt(getMessage("entryPointException.code")), getMessage("entryPointException.msg"));
     }
 
+    @ExceptionHandler(CCommunicationException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public CommonResult communicationException(HttpServletRequest request, CCommunicationException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("communicationError.code")), getMessage("communicationError.msg"));
+    }
+
+    @ExceptionHandler(CUserExistException.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public CommonResult communicationException(HttpServletRequest request, CUserExistException e) {
+        return responseService.getFailResult(Integer.parseInt(getMessage("existingUser.code")), getMessage("existingUser.msg"));
+    }
 }
