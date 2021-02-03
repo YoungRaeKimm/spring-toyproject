@@ -10,7 +10,7 @@ logging:
 spring:
   profiles: alpha
   datasource:
-    password: rladudfo1
+    password: XXXXXX
     url: jdbc:mysql://127.0.0.1:33060//spring_toy_project?useUnicode=true&autoReconnect=true&characterEncoding=utf8&allowMultiQueries=true&usesSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: youngrae
