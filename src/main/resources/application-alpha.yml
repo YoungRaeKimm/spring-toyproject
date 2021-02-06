@@ -12,10 +12,10 @@ spring:
     active:
       on-profile: alpha
   datasource:
-    url: jdbc:mysql://127.0.0.1:33060//spring_toy_project?useUnicode=true&autoReconnect=true&characterEncoding=utf8&allowMultiQueries=true&usesSL=false
+    url: jdbc:mysql://127.0.0.1:3306//spring_toy_project?useUnicode=true&autoReconnect=true&characterEncoding=utf8&allowMultiQueries=true&usesSL=false
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: youngrae
-    password: youngrae
+    username: root
+    #password: youngrae
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties.hibernate:
@@ -23,3 +23,5 @@ spring:
       format_sql: true
     showSql: true
     generate-ddl: false
+  url:
+    base: http://localhost:8080

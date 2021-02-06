@@ -1,9 +1,6 @@
 package com.example.springtoy.api.advice;
 
-import com.example.springtoy.api.advice.exception.CAuthenticationEntryPointException;
-import com.example.springtoy.api.advice.exception.CCommunicationException;
-import com.example.springtoy.api.advice.exception.CUserExistException;
-import com.example.springtoy.api.advice.exception.CUserNotFoundException;
+import com.example.springtoy.api.advice.exception.*;
 import com.example.springtoy.api.model.response.CommonResult;
 import com.example.springtoy.api.service.ResponseService;
 import lombok.RequiredArgsConstructor;
@@ -62,5 +59,17 @@ public class ExceptionAdvice {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public CommonResult communicationException(HttpServletRequest request, CUserExistException e) {
         return responseService.getFailResult(Integer.parseInt(getMessage("existingUser.code")), getMessage("existingUser.msg"));
+    }
+
+    @ExceptionHandler(CNotOwnerException.class)
+    @ResponseStatus(HttpStatus.NON_AUTHORITATIVE_INFORMATION)
+    public CommonResult notOwnerException(HttpServletRequest request, CNotOwnerException e) {
+        return responseService.getFailResult(Integer.valueOf(getMessage("notOwner.code")), getMessage("notOwner.msg"));
+    }
+
+    @ExceptionHandler(CResourceNotExistException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public CommonResult resourceNotExistException(HttpServletRequest request, CResourceNotExistException e) {
+        return responseService.getFailResult(Integer.valueOf(getMessage("resourceNotExist.code")), getMessage("resourceNotExist.msg"));
     }
 }
