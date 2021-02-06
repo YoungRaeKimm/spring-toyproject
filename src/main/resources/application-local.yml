@@ -8,7 +8,7 @@ spring:
     active:
       on-profile: local
   datasource:
-    password: rladudfo1
+    password: XXXXX
     url: jdbc:mysql://localhost:3306/spring_toy_project?useSSL=false&useUnicode=true&serverTimezone=Asia/Seoul
     username: root
   jpa:
